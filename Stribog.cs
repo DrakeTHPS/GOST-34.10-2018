@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Text;
 
@@ -275,13 +275,13 @@ namespace DigitalSignature
             return h;
         }
 
-        public virtual string GetHash(string message)
+        public virtual byte[] GetHash(string message)
         {
             N = new byte[64];
             Sigma = new byte[64];
             iv = new byte[64];
             byte[] hash = GetHashX(Encoding.ASCII.GetBytes(message));
-            return BitConverter.ToString(hash).Replace("-", " ");
+            return hash;
         }
     }
 }
